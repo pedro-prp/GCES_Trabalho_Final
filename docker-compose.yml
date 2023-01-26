@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  mongo:
+    image: mongo
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - network-parser
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: gcesuser
+      MONGO_INITDB_ROOT_PASSWORD: gcespass
+      MONGO_INITDB_DATABASE: parserdatabase
+
+volumes:
+  mongo-data:
+
+networks:
+  network-parser:
+    driver: bridge
