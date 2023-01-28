@@ -19,7 +19,11 @@ jobs:
       - name: Build app
         run: |
           docker build -t gces-app .
-
+      
+      - name: Make autodoc
+        run: |
+          docker run gces-app sphinx-apidoc -o docs/rst ./src
+          docker run gces-app make html -C docs/
       
       - name: Isort
         run: |
@@ -35,11 +39,6 @@ jobs:
         run: |
           pip install pylint
           pylint src
-
-      - name: Make autodoc
-        run: |
-          docker run gces-app sphinx-apidoc -o docs/rst ./src
-          docker run gces-app make html -C docs/
 
       - name: Test, coverage
         run: |
