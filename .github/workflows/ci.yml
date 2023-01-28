@@ -22,8 +22,8 @@ jobs:
 
       - name: Make autodoc
         run: |
-          docker run -it gces-app sphinx-apidoc -o docs/rst ./src
-          docker run -it gces-app make html -C docs/
+          docker run gces-app sphinx-apidoc -o docs/rst ./src
+          docker run gces-app make html -C docs/
 
       - name: Test, coverage
         run: |
