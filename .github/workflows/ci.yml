@@ -8,7 +8,7 @@ on:
       types: [opened, synchronize, reopened]
 
 jobs:
-  tests and coverage:
+  tests:
     name: Generate doc
     runs-on: ubuntu-latest
     steps:
