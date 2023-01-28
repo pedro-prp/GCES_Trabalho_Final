@@ -19,8 +19,18 @@ jobs:
       - name: Build app
         run: |
           docker build -t gces-app .
+
+      - name: Pylint
+        run: |
+          pip install pylint
+          pylint .
       
-      - name: Black lint
+      - name: Isort
+        run: |
+          pip install isort
+          isort . 
+      
+      - name: Black
         run: |
           pip install black
           black .
