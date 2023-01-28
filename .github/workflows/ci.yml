@@ -8,16 +8,23 @@ on:
       types: [opened, synchronize, reopened]
 
 jobs:
-  tests:
-    name: Generate doc
+  ci:
+    name: CI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Test, coverage and models ER
+      - name: Build app
         run: |
           docker build -t gces-app .
+
+      - name: Make autodoc
+        run: |
+          docker run -it gces-app sphinx-apidoc -o docs/rst ./src
+          docker run -it gces-app make html -C docs/
+
+      - name: Test, coverage
+        run: |
           docker run gces-app pytest --cov tests
-      
