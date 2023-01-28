@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "trabalho-individual-2022-2-"
+name = "gces_trabalho_final"
 version = "0.1.0"
 description = ""
 authors = ["Pedro Rodrigues <peddroprp@gmail.com>"]
@@ -53,6 +53,7 @@ tqdm = "4.64.1"
 urllib3 = "1.26.13"
 whatlies = "0.7.0"
 zipp = "3.11.0"
+Sphinx = "^6.1.3"
 
 [tool.poetry.dev-dependencies]
 

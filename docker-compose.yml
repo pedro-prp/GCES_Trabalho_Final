@@ -11,7 +11,7 @@ services:
       - .:/srv/app/
     networks:
       - network-parser
-    command: "python src/main.py"
+    command: "poetry run python src/main.py"
   mongo:
     image: mongo
     volumes:
