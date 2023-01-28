@@ -19,6 +19,11 @@ jobs:
       - name: Build app
         run: |
           docker build -t gces-app .
+      
+      - name: Black lint
+        run: |
+          pip install black
+          black .
 
       - name: Make autodoc
         run: |
