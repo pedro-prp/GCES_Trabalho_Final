@@ -3,6 +3,9 @@ name = "gces_trabalho_final"
 version = "0.1.0"
 description = ""
 authors = ["Pedro Rodrigues <peddroprp@gmail.com>"]
+packages = [
+    { include = "src", from = "." },
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
